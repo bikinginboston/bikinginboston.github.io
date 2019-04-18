@@ -20892,3 +20892,8 @@ var crash_data = [
         "long": -71.073
     }
 ]
+
+var data16 = crash_data.filter(crash => new Date("" + crash.dispatch_ts).getFullYear == 2016)
+var data17 = crash_data.filter(crash => new Date("" + crash.dispatch_ts).getFullYear == 2017)
+var data18 = crash_data.filter(crash => new Date("" + crash.dispatch_ts).getFullYear == 2018)
+
