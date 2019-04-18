@@ -26,7 +26,7 @@
 		<!-- Make sure you put this AFTER Leaflet's CSS -->
  		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
  						integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
- 						crossorigin=""></script>
+						 crossorigin=""></script>
 	</head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -216,8 +216,39 @@
 	            <div class="tab-content" id="v-pills-tabContent">
 
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
-									<div id="mapid"></div>
-										<script src="js/generalMap.js"></script>
+									<div id="mapid">
+										<script type="text/javascript" src="data/crash_data.js"></script> 
+										<script>
+												console.log(crash_data)
+												var mymap = L.map('mapid').setView([42.35, -71.08], 13);
+
+
+												L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
+													attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+													maxZoom: 17,
+													minZoom: 9}).addTo(mymap);
+
+												for (var i = 0; i < crash_data.length; i++) {
+													console.log(crash_data[i].long)
+													console.log(crash_data[i].lat)
+
+        									marker = L.marker([crash_data[i].lat, crash_data[i].long], { title: "My marker" }).addTo(mymap)
+												}
+   			
+													var popup = L.popup();
+
+													function onMapClick(e) {
+														popup
+															.setLatLng(e.latlng)
+															.setContent("You clicked the map at " + e.latlng.toString())
+															.openOn(mymap);
+													}
+
+													mymap.on('click', onMapClick);
+											</script>
+									</div>
+									<!-- <script type="text/javascript" src="data/crash_data.json"></script>
+									<script type="text/javascript" src="js/generalMap.js"></script> -->
 									<!-- <div class="img js-fullheight" style="background-image:url(images/chart-1.png);"></div> -->
 	              </div>
 
