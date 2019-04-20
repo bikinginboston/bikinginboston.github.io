@@ -27,6 +27,7 @@
  		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
  						integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
 						 crossorigin=""></script>
+
 	</head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -375,6 +376,8 @@
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
 									<div id="yearmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
+										<script type="text/javascript" src="data/bike_lane.js"></script> 
+
 										<script>
 												function check15(crash) {
 													var date =  new Date("" + crash.dispatch_ts)
@@ -406,7 +409,7 @@
 															color: '#e50cef',
 															fillColor: '#e50cef',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  			
 												
@@ -415,7 +418,7 @@
 															color: '#33a42c',
 															fillColor: '#33a42c',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												for (var i = 0; i < data17.length; i++) {
@@ -423,7 +426,7 @@
 															color: '#1376c8',
 															fillColor: '#1376c8',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												for (var i = 0; i < data18.length; i++) {
@@ -431,7 +434,7 @@
 															color: '#9282FF',
 															fillColor: '#9282FF',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												
@@ -442,7 +445,7 @@
 
 												var mymap = L.map('yearmapid', {
 													center: [42.35, -71.08],
-													zoom: 5,
+													zoom: 13,
 													layers: [layer15, layer16, layer17,layer18]
 												});
 
@@ -456,8 +459,17 @@
 														"2017": layer17,
 														"2018": layer18
 													};	
+													var myStyle = {
+   													 "color": "#000000",
+														"weight": 2,
+														"opacity": 0.65
+													};
+													
+												L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
+
 												L.control.layers(null, overlayMaps).addTo(mymap);
-	
+												mymap.invalidateSize()
+
 
 											</script>
 									</div>
@@ -474,9 +486,6 @@
 										<script>
 												function checkWinter(crash) {
 													var date =  new Date("" + crash.dispatch_ts)
-													console.log("## N: " + date.getMonth())
-													console.log("## INCLUDES: " + [11, 0, 1].includes(date.getMonth()))
-
 													return [11, 0, 1].includes(date.getMonth())
 												}
 												function checkSpring(crash) {
@@ -509,7 +518,7 @@
 															color: '#e50cef',
 															fillColor: '#e50cef',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  			
 												
@@ -518,7 +527,7 @@
 															color: '#33a42c',
 															fillColor: '#33a42c',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												for (var i = 0; i < dataSummer.length; i++) {
@@ -526,7 +535,7 @@
 															color: '#1376c8',
 															fillColor: '#1376c8',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												for (var i = 0; i < dataFall.length; i++) {
@@ -534,7 +543,7 @@
 															color: '#9282FF',
 															fillColor: '#9282FF',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												
@@ -549,6 +558,8 @@
 													layers: [layerWinter, layerSpring, layerSummer,layerFall]
 												});
 
+												myseasonmap.invalidateSize()
+
 												L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 													maxZoom: 17,
 													minZoom: 9}).addTo(myseasonmap);
@@ -560,131 +571,8 @@
 														"Fall": layerFall
 													};	
 												L.control.layers(null, overlayMaps).addTo(myseasonmap);
-	
-
 											</script>
 	              </div>
-
-	              <div class="tab-pane fade" id="v-pills-11" role="tabpanel" aria-labelledby="v-pills-day-11-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-2.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Nikki Valdez</a> <span class="position">Yoga Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Nikki Valdez</a> <span class="position">Yoga Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Nikki Valdez</a> <span class="position">Yoga Expert</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-
-	              <div class="tab-pane fade" id="v-pills-12" role="tabpanel" aria-labelledby="v-pills-day-12-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Troy Watson</a> <span class="position">Boxing Trainer</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-2.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Troy Watson</a> <span class="position">Boxing Trainer</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Troy Watson</a> <span class="position">Boxing Trainer</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-
-	              <div class="tab-pane fade" id="v-pills-13" role="tabpanel" aria-labelledby="v-pills-day-13-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Greg Mueller</a> <span class="position">Dance Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Greg Mueller</a> <span class="position">Dance Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-2.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Greg Mueller</a> <span class="position">Dance Expert</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-
-	              <div class="tab-pane fade" id="v-pills-14" role="tabpanel" aria-labelledby="v-pills-day-14-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jesh Stone</a> <span class="position">Muslce Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jesh Stone</a> <span class="position">Muslce Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jesh Stone</a> <span class="position">Muslce Expert</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
-	            </div>
 	          </div>
 	        </div>
         </div>
