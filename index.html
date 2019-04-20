@@ -259,13 +259,13 @@
 					<div class="row">
             <div class="col-md-3 nav-link-wrap">
 	            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">General Plot <span>Chart 1</span></a>
+	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
 
 	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
 
-	              <!-- <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Wednesday <span>Aerobic Program</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Filter By Season <span>Click on the Layer Button to explore the map by season</span></a>
 
-	              <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
+	               <!-- <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
 
 	              <a class="nav-link ftco-animate" id="v-pills-12-tab" data-toggle="pill" href="#v-pills-12" role="tab" aria-controls="v-pills-12" aria-selected="false">Friday <span>Fitness Program</span></a>
 
@@ -280,12 +280,9 @@
 	            <div class="tab-content" id="v-pills-tabContent">
 
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
-									<div id="mapid">
+									<div id="yearmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
 										<script>
-
-												
-										
 												function check15(crash) {
 													var date =  new Date("" + crash.dispatch_ts)
 													return date.getFullYear() == 2015
@@ -350,7 +347,7 @@
 												var layer17 = L.layerGroup(markers17);
 												var layer18 = L.layerGroup(markers18);
 
-												var mymap = L.map('mapid', {
+												var mymap = L.map('yearmapid', {
 													center: [42.35, -71.08],
 													zoom: 5,
 													layers: [layer15, layer16, layer17,layer18]
@@ -371,9 +368,6 @@
 
 											</script>
 									</div>
-									<!-- <script type="text/javascript" src="data/crash_data.json"></script>
-									<script type="text/javascript" src="js/generalMap.js"></script> -->
-									<!-- <div class="img js-fullheight" style="background-image:url(images/chart-1.png);"></div> -->
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
@@ -382,33 +376,100 @@
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
-	              		</div>
-	              	</div>
+									<div id="seasonmapid">
+										<script type="text/javascript" src="data/crash_data.js"></script> 
+										<script>
+												function checkWinter(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													console.log("## N: " + date.getMonth())
+													console.log("## INCLUDES: " + [11, 0, 1].includes(date.getMonth()))
+
+													return [11, 0, 1].includes(date.getMonth())
+												}
+												function checkSpring(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [2, 3, 4].includes(date.getMonth())
+												}
+												function checkSummer(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [5, 6, 7].includes(date.getMonth())
+												}
+												function checkFall(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [8, 9, 10].includes(date.getMonth())
+												}
+												var dataWinter = crash_data.filter(checkWinter)
+												var dataSpring = crash_data.filter(checkSpring)
+												console.log("## N SPRING: " + dataSpring.length)
+												var dataSummer = crash_data.filter(checkSummer)
+												console.log("## N Summer: " + dataSpring.length)
+												var dataFall = crash_data.filter(checkFall)
+												console.log("## N FALL: " + dataSpring.length)
+
+												var markersWinter =[]
+												var markersSpring =[]
+												var markersSummer =[]
+												var markersFall =[]
+
+												for (var i = 0; i < dataWinter.length; i++) {
+													markersWinter.push(L.circle([dataWinter[i].lat, dataWinter[i].long], {
+															color: '#e50cef',
+															fillColor: '#e50cef',
+															fillOpacity: 0.5,
+															radius: 3
+													}));
+												}  			
+												
+												for (var i = 0; i < dataSpring.length; i++) {
+													markersSpring.push(L.circle([dataSpring[i].lat, dataSpring[i].long], {
+															color: '#33a42c',
+															fillColor: '#33a42c',
+															fillOpacity: 0.5,
+															radius: 3
+													}));
+												}  
+												for (var i = 0; i < dataSummer.length; i++) {
+													markersSummer.push(L.circle([dataSummer[i].lat, dataSummer[i].long], {
+															color: '#1376c8',
+															fillColor: '#1376c8',
+															fillOpacity: 0.5,
+															radius: 3
+													}));
+												}  
+												for (var i = 0; i < dataFall.length; i++) {
+													markersFall.push(L.circle([dataFall[i].lat, dataFall[i].long], {
+															color: '#9282FF',
+															fillColor: '#9282FF',
+															fillOpacity: 0.5,
+															radius: 3
+													}));
+												}  
+												
+												var layerWinter = L.layerGroup(markersWinter);
+												var layerSpring = L.layerGroup(markersSpring);
+												var layerSummer = L.layerGroup(markersSummer);
+												var layerFall= L.layerGroup(markersFall);
+
+												var myseasonmap = L.map('seasonmapid', {
+													center: [42.35, -71.08],
+													zoom: 5,
+													layers: [layerWinter, layerSpring, layerSummer,layerFall]
+												});
+
+												L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+													maxZoom: 17,
+													minZoom: 9}).addTo(myseasonmap);
+
+													var overlayMaps = {
+														"Winter": layerWinter,
+														"Spring": layerSpring,
+														"Summer": layerSummer,
+														"Fall": layerFall
+													};	
+												L.control.layers(null, overlayMaps).addTo(myseasonmap);
+	
+
+											</script>
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-11" role="tabpanel" aria-labelledby="v-pills-day-11-tab">
