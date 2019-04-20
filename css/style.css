@@ -67,6 +67,10 @@ body {
   height: 500px; 
 }
 
+.heatmap {
+  height: 500px;
+}
+
 hr {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;

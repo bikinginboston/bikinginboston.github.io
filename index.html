@@ -284,9 +284,6 @@
 									<div id="mapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
 										<script>
-
-												
-										
 												function check15(crash) {
 													var date =  new Date("" + crash.dispatch_ts)
 													return date.getFullYear() == 2015
@@ -378,8 +375,48 @@
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
-										<div class="img js-fullheight" style="background-image:url(images/chart-2.png);">
-	              	</div>
+										<div class="img heatmap" style="background-image:url(images/heatmap.jpg);"> -->
+										</div> 
+										<!-- <div id='heatmapid'>
+											<script type="text/javascript" src="data/crash_data.js"></script> 
+											<script src="leaflet-heat.js">
+											<script>
+												var base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+												var heatmap = new OpenLayers.Layer.HeatCanvas("HeatCanvas", base, {},
+												{'step':0.3, 'degree':HeatCanvas.QUAD, 'opacity':0.8});
+												
+
+												// dataPoints = []
+												// var mydata = {max: 46, data: dataPoints}
+												// console.log("## A: " + dataPoints)
+												for (i = 0; i < crash_data.length; i++) {
+													//dataPoints.push({lat: crash_data[i].lat, lon: crash_data[i].long, value: 37});
+													heatmap.push(crash_data[i].lat, crash_data[i].long, 0.5);
+													//dataPoints.push[crash_data[i].lat, crash_data[i].long, 0.5]
+												}
+												base.addLayer(heatmap);
+												// heatmap.render();
+												// console.log("## A: " + dataPoints)
+
+												// var heatmap = new L.heatLayer(dataPoints, {radius: 25}).addTo(base)
+
+												// var heatmap = new L.TileLayer.heatMap({
+												// 	// size: 350
+												// 	radius: 20,
+												// 	opacity: 0.8
+												// });
+												// heatmap.addData(mydata.data);
+
+												// var baseheatmap = L.map('heatmapid', {
+												// 	layers : [base, heatmap],
+												// 	center : [42.35, -71.08],
+												// 	zoom: 5 
+												// });
+												
+												// baseheatmap.addLayer( heatmap );
+											</script>
+										</div> -->
+
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
@@ -563,7 +600,7 @@
 									<h3 class="mb-2">Ashna Shah</h3>
 									<span class="position mb-4">Frequent Biker</span>
 									<p>
-										Hey there! I am a 4th year, CS major. I currently own a bike and use it to get to and fro campus
+										Hey there! I am a 4th year, CS major. I currently own a bike and use it to get to and from campus
 										just about every day. I've had my fair share of biking through frigid Boston days, but I still 
 										love having a bike!
 									</p>
@@ -623,17 +660,10 @@
         <div class="row d-flex">
           <div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="single.html" class="block-20" style="background-image: url('images/permanentbikelane.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">04</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
-              		</div>
               	</div>
                 <h3 class="heading"><a href="single.html">Add more permanent bike lanes</a></h3>
                 <p>Our investigation has highlighted certain streets we think would benefit from more bike lanes: 
@@ -652,17 +682,10 @@
           </div>
           <div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
-              <a href="single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a href="single.html" class="block-20" style="background-image: url('images/protectedbikelane.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">04</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
-              		</div>
               	</div>
                 <h3 class="heading"><a href="single.html">Adding temporary protected bike lanes in certain months
 								</a></h3>
@@ -675,17 +698,10 @@
           </div>
           <div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry">
-              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="single.html" class="block-20" style="background-image: url('images/speedlimit.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">04</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
-              		</div>
               	</div>
                 <h3 class="heading"><a href="single.html">Decrease speed limits in high traffic bike areas/neighborhoods
 								</a></h3>
@@ -701,17 +717,10 @@
 					</div>
 					<div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry">
-              <a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="single.html" class="block-20" style="background-image: url('images/signage.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
-              		<div class="one mr-2">
-              			<span class="day">04</span>
-              		</div>
-              		<div class="two">
-              			<span class="yr">2019</span>
-              			<span class="mos">april</span>
-              		</div>
               	</div>
                 <h3 class="heading"><a href="single.html">Increased signage to encourage/inform drivers to share the road with bikers
 								</a></h3>
