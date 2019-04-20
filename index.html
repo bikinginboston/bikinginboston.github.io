@@ -246,7 +246,100 @@
         </div>
       </div>
     </section>
-		<section class="ftco-section ftco-schedule" id="data-section">
+
+	<section class="ftco-section" id="technology-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-6 heading-section text-center ftco-animate">
+					<span class="subheading">Data Sources & Technologies Used</span>
+					<h2 class="mb-4">Methodology</h2>
+					<p>For our project we collected data from two primary sources and conducted our analysis in RStudio with several
+					libraries.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/visionzero.png);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<span class="position mb-4">Data Source #1</span>
+								<p class="text-left">
+									<b>Who?</b> Vision Zero is a subgroup of Boston's Transportation Department. Their mission
+									is to "focus the City’s resources on proven strategies to eliminate fatal and serious traffic
+									crashes in the City by 2030." Vision Zero collects and reports statistics on motor vehicle, bike,
+									and pedestrian crashes throughout the city.
+								</p>
+								<p class="text-left">
+									<b>Data </b><span class="ion-ios-arrow-round-forward"></span> The data obtained through vision zero provided
+									us with details on 17,361 instances of crashes throughout the 2015-2018 time period.
+									Useful fields in the dataset included: time of day, mode type(car, bike, ped), and location(lat, lon).
+									We further filtered the dataset to focus primarily on crashes involving bikers.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/analyzeboston.png);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<span class="position mb-4">Data Source #2</span>
+								<p class="text-left">
+									<b>Who?</b> Analyze Boston is the City's open data portal. They provide a wide range of public data
+									with the mission of making information "easy to find, access, and use by a broad audience." Specifically,
+									we focused on their data related to the placement and locations of bike lanes throughout the City.
+								</p>
+								<p class="text-left">
+									<b>Data </b><span class="ion-ios-arrow-round-forward"></span> The bike lane data collected through Analyze Boston
+									provided us with a spatial representation of the location of bike lanes in Boston. This allowed us to import the
+									spatial dataset into RStudio to overlay on a map for visual data analysis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/rstudio.png);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<span class="position mb-4">Libraries for Data Analysis</span>
+								<p class="text-left">
+									<b>Who?</b> RStudio is a free open-source integreated development enviornment. As stated in their mission,
+									they aim to provide professionals with software that allows for "robust and reproductive data analysis." R's active
+									user community provides a variety of useful function through libraries.
+
+								</p>
+								<p class="text-left">
+									<b>Analysis </b><span class="ion-ios-arrow-round-forward"></span> RStudio was our primary resource for performing in-depth
+									data analysis utilizing the crash and bike lane datasets. Our work was supported by the following packages:
+									<li class="text-left">tidyverse</li>
+									<li class="text-left">leaflet</li>
+									<li class="text-left">leaflet.extras</li>
+									<li class="text-left">ggplot</li>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+	<section class="ftco-section ftco-schedule" id="data-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
 	        <div class="col-md-12 heading-section text-center ftco-animate">
