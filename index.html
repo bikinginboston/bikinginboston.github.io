@@ -369,115 +369,135 @@
 
 	            </div>
 	          </div>
-	          <div class="col-md-9 tab-wrap">
-	            
+	          <div class="col-md-9 tab-wrap row">
 	            <div class="tab-content" id="v-pills-tabContent">
-
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
-									<div id="yearmapid">
-										<script type="text/javascript" src="data/crash_data.js"></script> 
-										<script type="text/javascript" src="data/bike_lane.js"></script> 
+									<div class="col-md-8">
+										<div id="yearmapid">
+											<script type="text/javascript" src="data/crash_data.js"></script> 
+											<script type="text/javascript" src="data/bike_lane.js"></script> 
+											<script>
+													function check15(crash) {
+														var date =  new Date("" + crash.dispatch_ts)
+														return date.getFullYear() == 2015
+													}
+													function check16(crash) {
+														var date =  new Date("" + crash.dispatch_ts)
+														return date.getFullYear() == 2016
+													}
+													function check17(crash) {
+														var date =  new Date("" + crash.dispatch_ts)
+														return date.getFullYear() == 2017
+													}
+													function check18(crash) {
+														var date =  new Date("" + crash.dispatch_ts)
+														return date.getFullYear() == 2018
+													}
+													var data15 = crash_data.filter(check15)
+													var data16 = crash_data.filter(check16)
+													var data17 = crash_data.filter(check17)
+													var data18 = crash_data.filter(check18)
+													var markers15 =[]
+													var markers16 =[]
+													var markers17 =[]
+													var markers18 =[]
 
-										<script>
-												function check15(crash) {
-													var date =  new Date("" + crash.dispatch_ts)
-													return date.getFullYear() == 2015
-												}
-												function check16(crash) {
-													var date =  new Date("" + crash.dispatch_ts)
-													return date.getFullYear() == 2016
-												}
-												function check17(crash) {
-													var date =  new Date("" + crash.dispatch_ts)
-													return date.getFullYear() == 2017
-												}
-												function check18(crash) {
-													var date =  new Date("" + crash.dispatch_ts)
-													return date.getFullYear() == 2018
-												}
-												var data15 = crash_data.filter(check15)
-												var data16 = crash_data.filter(check16)
-												var data17 = crash_data.filter(check17)
-												var data18 = crash_data.filter(check18)
-												var markers15 =[]
-												var markers16 =[]
-												var markers17 =[]
-												var markers18 =[]
-
-												for (var i = 0; i < data15.length; i++) {
-													markers15.push(L.circle([data15[i].lat, data15[i].long], {
-															color: '#e50cef',
-															fillColor: '#e50cef',
-															fillOpacity: 0.5,
-															radius: 10
-													}));
-												}  			
-												
-												for (var i = 0; i < data16.length; i++) {
-													markers16.push(L.circle([data16[i].lat, data16[i].long], {
-															color: '#33a42c',
-															fillColor: '#33a42c',
-															fillOpacity: 0.5,
-															radius: 10
-													}));
-												}  
-												for (var i = 0; i < data17.length; i++) {
-													markers17.push(L.circle([data17[i].lat, data17[i].long], {
-															color: '#1376c8',
-															fillColor: '#1376c8',
-															fillOpacity: 0.5,
-															radius: 10
-													}));
-												}  
-												for (var i = 0; i < data18.length; i++) {
-													markers18.push(L.circle([data18[i].lat, data18[i].long], {
-															color: '#9282FF',
-															fillColor: '#9282FF',
-															fillOpacity: 0.5,
-															radius: 10
-													}));
-												}  
-												
-												var layer15 = L.layerGroup(markers15);
-												var layer16 = L.layerGroup(markers16);
-												var layer17 = L.layerGroup(markers17);
-												var layer18 = L.layerGroup(markers18);
-
-												var mymap = L.map('yearmapid', {
-													center: [42.35, -71.08],
-													zoom: 13,
-													layers: [layer15, layer16, layer17,layer18]
-												});
-
-												L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-													maxZoom: 17,
-													minZoom: 9}).addTo(mymap);
-
-													var overlayMaps = {
-														"2015": layer15,
-														"2016": layer16,
-														"2017": layer17,
-														"2018": layer18
-													};	
-													var myStyle = {
-   													 "color": "#000000",
-														"weight": 2,
-														"opacity": 0.65
-													};
+													for (var i = 0; i < data15.length; i++) {
+														markers15.push(L.circle([data15[i].lat, data15[i].long], {
+																color: '#e50cef',
+																fillColor: '#e50cef',
+																fillOpacity: 0.5,
+																radius: 10
+														}));
+													}  			
 													
-												L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
+													for (var i = 0; i < data16.length; i++) {
+														markers16.push(L.circle([data16[i].lat, data16[i].long], {
+																color: '#33a42c',
+																fillColor: '#33a42c',
+																fillOpacity: 0.5,
+																radius: 10
+														}));
+													}  
+													for (var i = 0; i < data17.length; i++) {
+														markers17.push(L.circle([data17[i].lat, data17[i].long], {
+																color: '#1376c8',
+																fillColor: '#1376c8',
+																fillOpacity: 0.5,
+																radius: 10
+														}));
+													}  
+													for (var i = 0; i < data18.length; i++) {
+														markers18.push(L.circle([data18[i].lat, data18[i].long], {
+																color: '#9282FF',
+																fillColor: '#9282FF',
+																fillOpacity: 0.5,
+																radius: 10
+														}));
+													}  
+													
+													var layer15 = L.layerGroup(markers15);
+													var layer16 = L.layerGroup(markers16);
+													var layer17 = L.layerGroup(markers17);
+													var layer18 = L.layerGroup(markers18);
 
-												L.control.layers(null, overlayMaps).addTo(mymap);
-												mymap.invalidateSize()
+													var mymap = L.map('yearmapid', {
+														center: [42.35, -71.08],
+														zoom: 13,
+														layers: [layer15, layer16, layer17,layer18]
+													});
+
+													L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+														maxZoom: 17,
+														minZoom: 9}).addTo(mymap);
+
+														var overlayMaps = {
+															"2015": layer15,
+															"2016": layer16,
+															"2017": layer17,
+															"2018": layer18
+														};	
+														var myStyle = {
+															"color": "#000000",
+															"weight": 2,
+															"opacity": 0.65
+														};
+														
+													L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
+
+													L.control.layers(null, overlayMaps).addTo(mymap);
+													mymap.invalidateSize()
 
 
-											</script>
+												</script>
+										</div>	
 									</div>
-	              </div>
+									<div class="hello col-md-4">
+										<p>Explore this chart to view the change in number of crashes per year. 
+											We found this to be useful to figuring out if changes in Boston’s infrastructure have had impacts
+											on the number of crashes that occur each year. Something interesting we noticed was that despite 
+											the construction of the bike lanes on Mass. Ave. in 2017, crashes still seem to be occurring. 
+											In our survey we asked people to list some streets on which they have felt unsafe. Streets included 
+											Mass. Ave., Columbus, Huntington, Boylston, and Parker St. Some of these streets have bike lanes, 
+											while others do not; play around with the filters to examine streets with/without bike lanes and see 
+											how the number of crashes may have changed over the years. 
+											</p>
+									</div>
+							</div>
 
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
-										<div class="img heatmap" style="background-image:url(images/heatmap.jpg);"> -->
+										<div class="img heatmap col-md-8" style="background-image:url(images/heatmap.jpg);"> -->
 										</div> 
+
+										<div class="hello col-md-4">
+											<p>In order to better consolidate the data we generated a heat map to view the areas where 
+												crashes are more concentrated. When examining the map with the bike lanes, 
+												something significant we noted was that there are many areas downtown without bike 
+												lanes where crashes tend to occur. We know the roads downtown can be confusing and windy, 
+												which is why we were not really surprised at the concentration of crashes occurring in that 
+												area. 
+												</p>
+										</div>
 										<!-- <div id='heatmapid'>
 											<script type="text/javascript" src="data/crash_data.js"></script> 
 											<script src="leaflet-heat.js">
@@ -521,7 +541,7 @@
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
-									<div id="seasonmapid">
+									<div class='col-md-8' id="seasonmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
 										<script>
 												function checkWinter(crash) {
@@ -612,10 +632,20 @@
 													};	
 												L.control.layers(null, overlayMaps).addTo(myseasonmap);
 											</script>
-	              </div>
-	          </div>
+								</div>
+								<div class="hello col-md-4">
+										<p>Use this chart to view the change in number of crashes over each season. 
+											Initially, we hypothesized that the majority of crashes would occur in the winter, 
+											as roads can be icy and unsafe, however, the map shows a very large number of crashes in the 
+											spring/summer. While it is evident that there are more crashes, we would like to know the 
+											ratio of number of bikers to number of crashes, as there already tend to be more bikers in 
+											the warmer months. Again, take a look at the streets with/without bike lanes to view how the 
+											number of crashes may have increased/decreased with the change in seasons.  
+										</p>
+								</div>
+						</div>
 	        </div>
-        </div>
+				</div>
 	    </div>
 		</section>
     <section class="ftco-section" id="aboutus-section">
