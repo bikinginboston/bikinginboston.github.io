@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
 
     <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/MarkerCluster.css">
 
     <link rel="stylesheet" href="css/ionicons.min.css">
     
@@ -26,8 +27,7 @@
 		<!-- Make sure you put this AFTER Leaflet's CSS -->
  		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
  						integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-						 crossorigin=""></script>
-
+						 crossorigin=""></script>				 
 	</head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -335,11 +335,6 @@
 		</div>
 	</section>
 
-
-
-
-
-
 	<section class="ftco-section ftco-schedule" id="data-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -353,11 +348,10 @@
 					<div class="row">
             <div class="col-md-3 nav-link-wrap">
 	            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
-
+								<a class="nav-link ftco-animate active" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="true">Cluster Map<span>All bike crashes in Boston for the past 4 years</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
 	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Filter By Season <span>Click on the Layer Button to explore the map by season</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
 
 	               <!-- <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
 
@@ -372,8 +366,42 @@
 	          <div class="col-md-9 tab-wrap">
 	            
 	            <div class="tab-content" id="v-pills-tabContent">
+									<div class="tab-pane fade show active" id="v-pills-11" role="tabpanel" aria-labelledby="day-11-tab">
+											<div id="clustermapid">
+												<script type="text/javascript" src="data/crash_data.js"></script> 
+												<script type="text/javascript" src="data/bike_lane.js"></script> 
+												<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster-src.js'></script>
 
-	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
+												<script>
+													var markerClusters = L.markerClusterGroup();
+
+														for (var i = 0; i < crash_data.length; i++) {
+															if (crash_data[i].lat != NaN && crash_data[i].long !=NaN) {
+																markerClusters.addLayer(L.circle([crash_data[i].lat, crash_data[i].long], {
+																		color: '#e50cef',
+																		fillColor: '#e50cef',
+																		fillOpacity: 0.5,
+																		radius: 7
+																}));
+															}
+														}  			
+											
+														var mymap = L.map('clustermapid', {
+															center: [42.35, -71.08],
+															zoom: 13,
+														});
+		
+														L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+															maxZoom: 17,
+															minZoom: 9}).addTo(mymap);
+		
+										
+														mymap.addLayer(markerClusters);
+														mymap.invalidateSize()
+													</script>
+											</div>
+										</div>
+	              <div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
 									<div id="yearmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
 										<script type="text/javascript" src="data/bike_lane.js"></script> 
@@ -466,11 +494,8 @@
 													};
 													
 												L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
-
 												L.control.layers(null, overlayMaps).addTo(mymap);
 												mymap.invalidateSize()
-
-
 											</script>
 									</div>
 	              </div>

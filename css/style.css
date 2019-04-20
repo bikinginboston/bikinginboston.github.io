@@ -62,7 +62,7 @@ body {
 [tabindex="-1"]:focus {
   outline: 0 !important; }
 
-#yearmapid, #seasonmapid{ 
+#yearmapid, #seasonmapid, #clustermapid{ 
   z-index: 0;
   height: 500px; 
 }
