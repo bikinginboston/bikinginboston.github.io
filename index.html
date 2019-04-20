@@ -259,14 +259,14 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 ftco-animate">
+				<div class="col-md-6 ftco-animate">
 					<div class="staff">
 						<div class="img-wrap d-flex align-items-stretch">
 							<div class="img align-self-stretch" style="background-image: url(images/visionzero.png);"></div>
 						</div>
 						<div class="text d-flex align-items-center pt-3 text-center">
 							<div>
-								<span class="position mb-4">Data Source #1</span>
+								<a href="https://www.boston.gov/transportation/vision-zero" target="_blank">Data Source #1</a>
 								<p class="text-left">
 									<b>Who?</b> Vision Zero is a subgroup of Boston's Transportation Department. Their mission
 									is to "focus the City’s resources on proven strategies to eliminate fatal and serious traffic
@@ -283,14 +283,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 ftco-animate">
+				<div class="col-md-6 ftco-animate">
 					<div class="staff">
 						<div class="img-wrap d-flex align-items-stretch">
 							<div class="img align-self-stretch" style="background-image: url(images/analyzeboston.png);"></div>
 						</div>
 						<div class="text d-flex align-items-center pt-3 text-center">
 							<div>
-								<span class="position mb-4">Data Source #2</span>
+								<a href="https://data.boston.gov/dataset/existing-bike-network" target="_blank">Data Source #2</a>
 								<p class="text-left">
 									<b>Who?</b> Analyze Boston is the City's open data portal. They provide a wide range of public data
 									with the mission of making information "easy to find, access, and use by a broad audience." Specifically,
@@ -305,14 +305,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 ftco-animate">
+				<div class="col-md-6 ftco-animate">
 					<div class="staff">
 						<div class="img-wrap d-flex align-items-stretch">
 							<div class="img align-self-stretch" style="background-image: url(images/rstudio.png);"></div>
 						</div>
 						<div class="text d-flex align-items-center pt-3 text-center">
 							<div>
-								<span class="position mb-4">Libraries for Data Analysis</span>
+								<a href="https://www.rstudio.com/" class="position mb-4" target="_blank">Libraries for Data Analysis</a>	
 								<p class="text-left">
 									<b>Who?</b> RStudio is a free open-source integreated development enviornment. As stated in their mission,
 									they aim to provide professionals with software that allows for "robust and reproductive data analysis." R's active
@@ -320,7 +320,7 @@
 
 								</p>
 								<p class="text-left">
-									<b>Analysis </b><span class="ion-ios-arrow-round-forward"></span> RStudio was our primary resource for performing in-depth
+									<b>Analysis </b><span class="ion-ios-arrow-round-forward"></span> RStudio was our first resource for performing in-depth
 									data analysis utilizing the crash and bike lane datasets. Our work was supported by the following packages:
 									<li class="text-left">tidyverse</li>
 									<li class="text-left">leaflet</li>
@@ -331,6 +331,35 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-6 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url(images/leaflet.jpg);"></div>
+							</div>
+							<div class="text d-flex align-items-center pt-3 text-center">
+								<div>
+									<a href="https://leafletjs.com/index.html" class="position mb-4" target="_blank">Leaflet: JavaScript Library</a>	
+									<p class="text-left">
+										<b>Who?</b> Leaflet is a JS library used for creating interactive maps. 
+										It contains features for plotting points on maps, creating cluster maps, working with 
+										GeoJSON layers, and much more. We utilized leaflet for R initially, then transitioned over
+										to JS code for the webapp.
+									</p>
+									<p class="text-left">
+										<b>Maps </b><span class="ion-ios-arrow-round-forward"></span> Leaflet makes it very easy to 
+										create interactive maps with various views. We used the OpenStreetView as the base map and then
+										overlayed various features such as markers, clusters, heatmaps, etc. We played around with 
+										changing the marker colors to represent different visualizations which you saw above (year, season).
+										We were also able to use it to bring in the shape file of bike paths in Boston which we used
+										to further our analysis of which areas need improvement in the city. 
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 			</div>
 		</div>
 	</section>
@@ -365,108 +394,6 @@
 	          </div>
 	          <div class="col-md-9 tab-wrap row">
 	            <div class="tab-content" id="v-pills-tabContent">
-<<<<<<< HEAD
-	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
-									<div class="col-md-8">
-										<div id="yearmapid">
-											<script type="text/javascript" src="data/crash_data.js"></script> 
-											<script type="text/javascript" src="data/bike_lane.js"></script> 
-											<script>
-													function check15(crash) {
-														var date =  new Date("" + crash.dispatch_ts)
-														return date.getFullYear() == 2015
-													}
-													function check16(crash) {
-														var date =  new Date("" + crash.dispatch_ts)
-														return date.getFullYear() == 2016
-													}
-													function check17(crash) {
-														var date =  new Date("" + crash.dispatch_ts)
-														return date.getFullYear() == 2017
-													}
-													function check18(crash) {
-														var date =  new Date("" + crash.dispatch_ts)
-														return date.getFullYear() == 2018
-													}
-													var data15 = crash_data.filter(check15)
-													var data16 = crash_data.filter(check16)
-													var data17 = crash_data.filter(check17)
-													var data18 = crash_data.filter(check18)
-													var markers15 =[]
-													var markers16 =[]
-													var markers17 =[]
-													var markers18 =[]
-
-													for (var i = 0; i < data15.length; i++) {
-														markers15.push(L.circle([data15[i].lat, data15[i].long], {
-																color: '#e50cef',
-																fillColor: '#e50cef',
-																fillOpacity: 0.5,
-																radius: 10
-														}));
-													}  			
-													
-													for (var i = 0; i < data16.length; i++) {
-														markers16.push(L.circle([data16[i].lat, data16[i].long], {
-																color: '#33a42c',
-																fillColor: '#33a42c',
-																fillOpacity: 0.5,
-																radius: 10
-														}));
-													}  
-													for (var i = 0; i < data17.length; i++) {
-														markers17.push(L.circle([data17[i].lat, data17[i].long], {
-																color: '#1376c8',
-																fillColor: '#1376c8',
-																fillOpacity: 0.5,
-																radius: 10
-														}));
-													}  
-													for (var i = 0; i < data18.length; i++) {
-														markers18.push(L.circle([data18[i].lat, data18[i].long], {
-																color: '#9282FF',
-																fillColor: '#9282FF',
-																fillOpacity: 0.5,
-																radius: 10
-														}));
-													}  
-													
-													var layer15 = L.layerGroup(markers15);
-													var layer16 = L.layerGroup(markers16);
-													var layer17 = L.layerGroup(markers17);
-													var layer18 = L.layerGroup(markers18);
-
-													var mymap = L.map('yearmapid', {
-														center: [42.35, -71.08],
-														zoom: 13,
-														layers: [layer15, layer16, layer17,layer18]
-													});
-
-													L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-														maxZoom: 17,
-														minZoom: 9}).addTo(mymap);
-
-														var overlayMaps = {
-															"2015": layer15,
-															"2016": layer16,
-															"2017": layer17,
-															"2018": layer18
-														};	
-														var myStyle = {
-															"color": "#000000",
-															"weight": 2,
-															"opacity": 0.65
-														};
-														
-													L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
-
-													L.control.layers(null, overlayMaps).addTo(mymap);
-													mymap.invalidateSize()
-
-
-												</script>
-										</div>	
-=======
 									<div class="tab-pane fade show active" id="v-pills-11" role="tabpanel" aria-labelledby="day-11-tab">
 											<div id="clustermapid">
 												<script type="text/javascript" src="data/crash_data.js"></script> 
@@ -598,7 +525,6 @@
 												L.control.layers(null, overlayMaps).addTo(mymap);
 												mymap.invalidateSize()
 											</script>
->>>>>>> 773d40c707957dbdeaf3aceb7efcfd0d322d30aa
 									</div>
 									<div class="hello col-md-4">
 										<p>Explore this chart to view the change in number of crashes per year. 
@@ -776,73 +702,6 @@
 				</div>
 	    </div>
 		</section>
-    <section class="ftco-section" id="aboutus-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-6 heading-section text-center ftco-animate">
-          	<span class="subheading">Ashna, Melissa, Nadine</span>
-            <h2 class="mb-4">About Us</h2>
-            <p>Bikers of Boston</p>
-          </div>
-        </div>
-        <div class="row">
-					<div class="col-md-4 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/ashna.jpg);"></div>
-							</div>
-							<div class="text d-flex align-items-center pt-3 text-center">
-								<div>
-									<h3 class="mb-2">Ashna Shah</h3>
-									<span class="position mb-4">Frequent Biker</span>
-									<p>
-										Hey there! I am a 4th year, CS major. I currently own a bike and use it to get to and from campus
-										just about every day. I've had my fair share of biking through frigid Boston days, but I still 
-										love having a bike!
-									</p>
-		            </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/melissa.jpg);"></div>
-							</div>
-							<div class="text d-flex align-items-center pt-3 text-center">
-								<div>
-									<h3 class="mb-2">Melissa Michels</h3>
-									<span class="position mb-4">Recreational Biker</span>
-									<p>
-											Hello! I'm a 5th year Computer Science and Business Administration
-											major. I love biking in Boston on a warm summer day! Some of my favorite places
-											to visit include the Charles River along the Esplanade as well as taking longer rides to the
-											Arnold Arboretum.
-										</p>
-		            </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/nadine.jpg);"></div>
-							</div>
-							<div class="text d-flex align-items-center pt-3 text-center">
-								<div>
-									<h3 class="mb-2">Nadine Shaalan</h3>
-									<span class="position mb-4">Casual Biker</span>
-									<p>
-										Hi! I'm a 4th year Computer Science major graduating this May! 
-										I use BlueBikes to get around the city in the summer, and I love the freedom riding gives you! 
-									</p>
-		            </div>
-							</div>
-						</div>
-					</div>
-				</div>
-    	</div>
-    </section> 
 
     <section class="ftco-section bg-light" id="proposals-section">
       <div class="container">
@@ -1033,7 +892,9 @@
 									love having a bike!
 								</p>
 								<p class="text-left">
-									<b>Project Role:</b> ...
+									<b>Project Role:</b>
+									I worked on creating visualizations in R with leaflet, 
+									which we then transitioned over to JavaScript. 
 								</p>
 							</div>
 						</div>
@@ -1055,7 +916,8 @@
 									Arnold Arboretum.
 								</p>
 								<p class="text-left">
-									<b>Project Role:</b> ...
+									<b>Project Role:</b> 
+									I worked on visualizations we did in R with leaflet as well as parts of the data analysis. 
 								</p>
 							</div>
 						</div>
@@ -1074,7 +936,8 @@
 									TODO...
 								</p>
 								<p class="text-left">
-									<b>Project Role:</b> ...
+									<b>Project Role:</b> 
+									I worked on the transition of our code from R to JavaScript as well as our analysis of the data.
 								</p>
 							</div>
 						</div>
