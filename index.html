@@ -27,6 +27,7 @@
  		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
  						integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
 						 crossorigin=""></script>
+
 	</head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -41,12 +42,11 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
 						<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-						<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
 						<li class="nav-item"><a href="#background-section" class="nav-link"><span>Background</span></a></li>
 						<li class="nav-item"><a href="#data-section" class="nav-link"><span>Data Exploration</span></a></li>
-						<li class="nav-item"><a href="#aboutus-section" class="nav-link"><span>About Us</span></a></li>
 						<li class="nav-item"><a href="#proposals-section" class="nav-link"><span>Proposals</span></a></li>
 						<li class="nav-item"><a href="#futurework-section" class="nav-link"><span>Future Work</span></a></li>
+						<li class="nav-item"><a href="#aboutus-section" class="nav-link"><span>About Us</span></a></li>
 						<li class="nav-item"><a href="#code-section" class="nav-link"><span>Code</span></a></li>
 
 	          <!-- <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
@@ -147,7 +147,7 @@
 		</div>
 	</section>
 
-		<section class="ftco-section motivation-section">
+		<section class="ftco-section motivation-section" id="testimonials">
       <div class="container">
         <div class="row justify-content-center pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
@@ -194,7 +194,7 @@
                     </span>
                   </div>
                   <div class="text px-4 pb-5">
-                    <p class="mb-4">Bikers are oblivious</p>
+                    <p class="mb-4">Drivers are oblivious</p>
                     <p class="name">Mat</p>
                     <span class="position">Avid Biker</span>
                   </div>
@@ -247,7 +247,100 @@
         </div>
       </div>
     </section>
-		<section class="ftco-section ftco-schedule" id="data-section">
+
+	<section class="ftco-section" id="technology-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-6 heading-section text-center ftco-animate">
+					<span class="subheading">Data Sources & Technologies Used</span>
+					<h2 class="mb-4">Methodology</h2>
+					<p>For our project we collected data from two primary sources and conducted our analysis in RStudio with several
+					libraries.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/visionzero.png);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<span class="position mb-4">Data Source #1</span>
+								<p class="text-left">
+									<b>Who?</b> Vision Zero is a subgroup of Boston's Transportation Department. Their mission
+									is to "focus the City’s resources on proven strategies to eliminate fatal and serious traffic
+									crashes in the City by 2030." Vision Zero collects and reports statistics on motor vehicle, bike,
+									and pedestrian crashes throughout the city.
+								</p>
+								<p class="text-left">
+									<b>Data </b><span class="ion-ios-arrow-round-forward"></span> The data obtained through vision zero provided
+									us with details on 17,361 instances of crashes throughout the 2015-2018 time period.
+									Useful fields in the dataset included: time of day, mode type(car, bike, ped), and location(lat, lon).
+									We further filtered the dataset to focus primarily on crashes involving bikers.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/analyzeboston.png);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<span class="position mb-4">Data Source #2</span>
+								<p class="text-left">
+									<b>Who?</b> Analyze Boston is the City's open data portal. They provide a wide range of public data
+									with the mission of making information "easy to find, access, and use by a broad audience." Specifically,
+									we focused on their data related to the placement and locations of bike lanes throughout the City.
+								</p>
+								<p class="text-left">
+									<b>Data </b><span class="ion-ios-arrow-round-forward"></span> The bike lane data collected through Analyze Boston
+									provided us with a spatial representation of the location of bike lanes in Boston. This allowed us to import the
+									spatial dataset into RStudio to overlay on a map for visual data analysis.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/rstudio.png);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<span class="position mb-4">Libraries for Data Analysis</span>
+								<p class="text-left">
+									<b>Who?</b> RStudio is a free open-source integreated development enviornment. As stated in their mission,
+									they aim to provide professionals with software that allows for "robust and reproductive data analysis." R's active
+									user community provides a variety of useful function through libraries.
+
+								</p>
+								<p class="text-left">
+									<b>Analysis </b><span class="ion-ios-arrow-round-forward"></span> RStudio was our primary resource for performing in-depth
+									data analysis utilizing the crash and bike lane datasets. Our work was supported by the following packages:
+									<li class="text-left">tidyverse</li>
+									<li class="text-left">leaflet</li>
+									<li class="text-left">leaflet.extras</li>
+									<li class="text-left">ggplot</li>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+	<section class="ftco-section ftco-schedule" id="data-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
 	        <div class="col-md-12 heading-section text-center ftco-animate">
@@ -260,13 +353,13 @@
 					<div class="row">
             <div class="col-md-3 nav-link-wrap">
 	            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">General Plot <span>Chart 1</span></a>
+	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
 
 	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
 
-	              <!-- <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Wednesday <span>Aerobic Program</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Filter By Season <span>Click on the Layer Button to explore the map by season</span></a>
 
-	              <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
+	               <!-- <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
 
 	              <a class="nav-link ftco-animate" id="v-pills-12-tab" data-toggle="pill" href="#v-pills-12" role="tab" aria-controls="v-pills-12" aria-selected="false">Friday <span>Fitness Program</span></a>
 
@@ -281,8 +374,13 @@
 	            <div class="tab-content" id="v-pills-tabContent">
 
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
-									<div id="mapid">
+									<div id="yearmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
+<<<<<<< HEAD
+=======
+										<script type="text/javascript" src="data/bike_lane.js"></script> 
+
+>>>>>>> 4cba6c8f7ae793ee6297dfbcea9c9af7886175cf
 										<script>
 												function check15(crash) {
 													var date =  new Date("" + crash.dispatch_ts)
@@ -314,7 +412,7 @@
 															color: '#e50cef',
 															fillColor: '#e50cef',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  			
 												
@@ -323,7 +421,7 @@
 															color: '#33a42c',
 															fillColor: '#33a42c',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												for (var i = 0; i < data17.length; i++) {
@@ -331,7 +429,7 @@
 															color: '#1376c8',
 															fillColor: '#1376c8',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												for (var i = 0; i < data18.length; i++) {
@@ -339,7 +437,7 @@
 															color: '#9282FF',
 															fillColor: '#9282FF',
 															fillOpacity: 0.5,
-															radius: 3
+															radius: 10
 													}));
 												}  
 												
@@ -348,9 +446,9 @@
 												var layer17 = L.layerGroup(markers17);
 												var layer18 = L.layerGroup(markers18);
 
-												var mymap = L.map('mapid', {
+												var mymap = L.map('yearmapid', {
 													center: [42.35, -71.08],
-													zoom: 5,
+													zoom: 13,
 													layers: [layer15, layer16, layer17,layer18]
 												});
 
@@ -364,14 +462,20 @@
 														"2017": layer17,
 														"2018": layer18
 													};	
+													var myStyle = {
+   													 "color": "#000000",
+														"weight": 2,
+														"opacity": 0.65
+													};
+													
+												L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
+
 												L.control.layers(null, overlayMaps).addTo(mymap);
-	
+												mymap.invalidateSize()
+
 
 											</script>
 									</div>
-									<!-- <script type="text/javascript" src="data/crash_data.json"></script>
-									<script type="text/javascript" src="js/generalMap.js"></script> -->
-									<!-- <div class="img js-fullheight" style="background-image:url(images/chart-1.png);"></div> -->
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
@@ -420,163 +524,106 @@
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Mark Harlem</a> <span class="position">Health Expert</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
+									<div id="seasonmapid">
+										<script type="text/javascript" src="data/crash_data.js"></script> 
+										<script>
+												function checkWinter(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [11, 0, 1].includes(date.getMonth())
+												}
+												function checkSpring(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [2, 3, 4].includes(date.getMonth())
+												}
+												function checkSummer(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [5, 6, 7].includes(date.getMonth())
+												}
+												function checkFall(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return [8, 9, 10].includes(date.getMonth())
+												}
+												var dataWinter = crash_data.filter(checkWinter)
+												var dataSpring = crash_data.filter(checkSpring)
+												console.log("## N SPRING: " + dataSpring.length)
+												var dataSummer = crash_data.filter(checkSummer)
+												console.log("## N Summer: " + dataSpring.length)
+												var dataFall = crash_data.filter(checkFall)
+												console.log("## N FALL: " + dataSpring.length)
 
-	              <div class="tab-pane fade" id="v-pills-11" role="tabpanel" aria-labelledby="v-pills-day-11-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-2.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Nikki Valdez</a> <span class="position">Yoga Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Nikki Valdez</a> <span class="position">Yoga Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Nikki Valdez</a> <span class="position">Yoga Expert</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
+												var markersWinter =[]
+												var markersSpring =[]
+												var markersSummer =[]
+												var markersFall =[]
 
-	              <div class="tab-pane fade" id="v-pills-12" role="tabpanel" aria-labelledby="v-pills-day-12-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Troy Watson</a> <span class="position">Boxing Trainer</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-2.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Troy Watson</a> <span class="position">Boxing Trainer</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Troy Watson</a> <span class="position">Boxing Trainer</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
+												for (var i = 0; i < dataWinter.length; i++) {
+													markersWinter.push(L.circle([dataWinter[i].lat, dataWinter[i].long], {
+															color: '#e50cef',
+															fillColor: '#e50cef',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  			
+												
+												for (var i = 0; i < dataSpring.length; i++) {
+													markersSpring.push(L.circle([dataSpring[i].lat, dataSpring[i].long], {
+															color: '#33a42c',
+															fillColor: '#33a42c',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  
+												for (var i = 0; i < dataSummer.length; i++) {
+													markersSummer.push(L.circle([dataSummer[i].lat, dataSummer[i].long], {
+															color: '#1376c8',
+															fillColor: '#1376c8',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  
+												for (var i = 0; i < dataFall.length; i++) {
+													markersFall.push(L.circle([dataFall[i].lat, dataFall[i].long], {
+															color: '#9282FF',
+															fillColor: '#9282FF',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  
+												
+												var layerWinter = L.layerGroup(markersWinter);
+												var layerSpring = L.layerGroup(markersSpring);
+												var layerSummer = L.layerGroup(markersSummer);
+												var layerFall= L.layerGroup(markersFall);
 
-	              <div class="tab-pane fade" id="v-pills-13" role="tabpanel" aria-labelledby="v-pills-day-13-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Greg Mueller</a> <span class="position">Dance Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Greg Mueller</a> <span class="position">Dance Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-2.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Greg Mueller</a> <span class="position">Dance Expert</span></h3>
-	              		</div>
-	              	</div>
-	              </div>
+												var myseasonmap = L.map('seasonmapid', {
+													center: [42.35, -71.08],
+													zoom: 5,
+													layers: [layerWinter, layerSpring, layerSummer,layerFall]
+												});
 
-	              <div class="tab-pane fade" id="v-pills-14" role="tabpanel" aria-labelledby="v-pills-day-14-tab">
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-3.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Body Building</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jesh Stone</a> <span class="position">Muslce Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-4.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Cardio Classes</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jesh Stone</a> <span class="position">Muslce Expert</span></h3>
-	              		</div>
-	              	</div>
-	              	<div class="coach-wrap ftco-animate d-sm-flex">
-	              		<div class="img coach-img" style="background-image: url(images/trainer-1.jpg);"></div>
-	              		<div class="text pl-md-5">
-	              			<span class="time">08:00AM - 10:00AM</span>
-	              			<h2><a href="#">Basic Exercies for Begginer</a></h2>
-	              			<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-	              			<h3 class="coach-name">&mdash; <a href="#">Jesh Stone</a> <span class="position">Muslce Expert</span></h3>
-	              		</div>
-	              	</div>
+												myseasonmap.invalidateSize()
+
+												L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+													maxZoom: 17,
+													minZoom: 9}).addTo(myseasonmap);
+
+													var overlayMaps = {
+														"Winter": layerWinter,
+														"Spring": layerSpring,
+														"Summer": layerSummer,
+														"Fall": layerFall
+													};	
+												L.control.layers(null, overlayMaps).addTo(myseasonmap);
+											</script>
 	              </div>
-	            </div>
 	          </div>
 	        </div>
         </div>
 	    </div>
 		</section>
-		
 
 
+<<<<<<< HEAD
 	
    
 
@@ -638,34 +685,55 @@
     	</div>
     </section> 
 
+=======
+>>>>>>> 4cba6c8f7ae793ee6297dfbcea9c9af7886175cf
     <section class="ftco-section bg-light" id="proposals-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
+          <div class="col-md-7 heading-section ftco-animate">
             <span class="subheading">Our ideas to help improve Boston's bike scene</span>
-            <h2 class="mb-4">Proposals</h2>
-						<p>We recognize that creating more bike lanes is a big undertaking. We think there are other methods to help with safety!</p>
-						<p>After examining our data, we thought about various actions that could be taken to improve bike safety in Boston. 
-							The first thought that came to our minds was to just add more bike lanes on streets without them, 
-							but we know that would be a pretty high cost to incur (both time and money), but would also hopefully have a 
-							high impact. Thus, we thought about some other ways with potentially less cost that may help enhance Boston’s 
-							bike scene. We think that some of these actions could be utilized in a sort of tier system that may help the 
-							city make gradual improvements based on both their time and money capacity at the time. We also recognize that 
-							there are streets such as Mass Ave and Columbus Ave. with already existing bike lanes that still suffer crashes, 
-							and we think that some of these other measures may help alleviate them. We have ranked these proposed methods on 
-							cost and impact to the city. 
+            <h2 class="mb-4">Proposal</h2>
+						<p>We recognize that creating more bike lanes is a big undertaking. We think there are other methods to help improve safety!</p>
+						<p>After examining our data, we thought about various actions that could be taken to improve bike safety in Boston.
+							Our proposal is broken down into a system of four tiers.
+							Simply deciding to add bike lanes on streets without them could be a solution with high impact,
+							but it's also a big undertaking for the city with high costs associated with the planning, design, and implementation
+							(both time and money).</p>
+
+			  			<p>Our model includes additional methods with potentially less cost that may help enhance Boston’s
+							bike scene. Our proposed action plan can be utilized by the city to categorize high traffic biking areas and crash hotspots
+							into four levels of severity. In using this system, they city can make gradual improvements
+							based on the resources they have available. We also recognize that
+							there are streets such as Mass Ave and Columbus Ave. with preexisting bike lanes that still suffer crashes.
+							We believe that with the addition of some of these other measures, this will help alleviate instances of crashes and aid in creating a safer Boston
+							for drivers, bikers, and pedestrians. The four tier levels are further explained in the next section and are ranked in terms
+							of impact to the city as well as their cost levels.
 						</p>
           </div>
         </div>
         <div class="row d-flex">
           <div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
+<<<<<<< HEAD
               <a href="single.html" class="block-20" style="background-image: url('images/permanentbikelane.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
+=======
+              <a href="single.html" class="block-20" style="background-image: url('images/bikelane.JPG');">
+              </a>
+              <div class="text float-right d-block">
+              	<div class="d-flex align-items-center pt-2 mb-4 topp">
+              		<!--div class="one mr-2">
+              			<span class="day">04</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">april</span>
+              		</div-->
+>>>>>>> 4cba6c8f7ae793ee6297dfbcea9c9af7886175cf
               	</div>
-                <h3 class="heading"><a href="single.html">Add more permanent bike lanes</a></h3>
+                <h3 class="heading"><a href="single.html">Tier 1: Adding permanent bike lanes</a></h3>
                 <p>Our investigation has highlighted certain streets we think would benefit from more bike lanes: 
 									<ul>
 										<li>Boylston Street - Back Bay</li>
@@ -682,12 +750,26 @@
           </div>
           <div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry justify-content-end">
+<<<<<<< HEAD
               <a href="single.html" class="block-20" style="background-image: url('images/protectedbikelane.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
+=======
+              <a href="single.html" class="block-20" style="background-image: url('images/templane.JPG');">
+              </a>
+              <div class="text float-right d-block">
+              	<div class="d-flex align-items-center pt-2 mb-4 topp">
+              		<!--div class="one mr-2">
+              			<span class="day">04</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">april</span>
+              		</div-->
+>>>>>>> 4cba6c8f7ae793ee6297dfbcea9c9af7886175cf
               	</div>
-                <h3 class="heading"><a href="single.html">Adding temporary protected bike lanes in certain months
+                <h3 class="heading"><a href="single.html">Tier 2: Adding temporary protected bike lanes during high traffic months
 								</a></h3>
                 <p>We recognize that more people bike in the warmer months, and think that a potential way to create bike lanes is to add temporary safety measures along roads to create bike lanes.</p>
                 <b>COST: MEDIUM</b>
@@ -698,12 +780,26 @@
           </div>
           <div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry">
+<<<<<<< HEAD
               <a href="single.html" class="block-20" style="background-image: url('images/speedlimit.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
+=======
+              <a href="single.html" class="block-20" style="background-image: url('images/speedlimit.png');">
+              </a>
+              <div class="text float-right d-block">
+              	<div class="d-flex align-items-center pt-2 mb-4 topp">
+              		<!--div class="one mr-2">
+              			<span class="day">04</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">april</span>
+              		</div-->
+>>>>>>> 4cba6c8f7ae793ee6297dfbcea9c9af7886175cf
               	</div>
-                <h3 class="heading"><a href="single.html">Decrease speed limits in high traffic bike areas/neighborhoods
+                <h3 class="heading"><a href="single.html">Tier 3: Decreasing speed limits in high traffic bike areas and neighborhoods
 								</a></h3>
                 <p>Our qualitative data highlighted the fact that many bikers feel unsafe due to fast driving cars in popular bike areas (such as downtown). 
 									We think that a potentially cheaper way to help bikers is to propose slower speed limits in higher traffic <areas>
@@ -717,12 +813,26 @@
 					</div>
 					<div class="col-xs-6 col-sm-6 d-flex ftco-animate">
           	<div class="blog-entry">
+<<<<<<< HEAD
               <a href="single.html" class="block-20" style="background-image: url('images/signage.jpg');">
               </a>
               <div class="text float-right d-block">
               	<div class="d-flex align-items-center pt-2 mb-4 topp">
+=======
+              <a href="single.html" class="block-20" style="background-image: url('images/sharetheroad.png');">
+              </a>
+              <div class="text float-right d-block">
+              	<div class="d-flex align-items-center pt-2 mb-4 topp">
+              		<!--div class="one mr-2">
+              			<span class="day">04</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">april</span>
+              		</div-->
+>>>>>>> 4cba6c8f7ae793ee6297dfbcea9c9af7886175cf
               	</div>
-                <h3 class="heading"><a href="single.html">Increased signage to encourage/inform drivers to share the road with bikers
+                <h3 class="heading"><a href="single.html">Tier 4: Increasing signage to encourage and inform drivers to share the road with bikers
 								</a></h3>
                 <p>From personal experience we have noticed that there are clear road markers indicating bike lanes, however, 
 									we don't necessarily think that drivers will pay the best attention to something that is directly in front of them 
@@ -739,15 +849,48 @@
       </div>
 		</section>
 		
-		<section class="ftco-section bg-light" id="futurework-section">
-				<div class="container">
-					<div class="row justify-content-center mb-5 pb-5">
-						<div class="col-md-7 heading-section text-center ftco-animate">
+		<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="futurework-section">
+			<div class="container">
+				<div class="row d-flex">
+					<div class="col-md-6 col-lg-7 pl-lg-5 py-5">
+						<div class="py-md-5">
+							<div class="row justify-content-start pb-3">
+								<div class="col-md-12 heading-section ftco-animate">
+									<span class="subheading">Future Work</span>
+									<p>If we had all the time and resources in the world we would love to obtain access to real-time data and create an interactive map
+										of bike accidents, traffic patterns, and use it to help bikers optimize their routes to and from a place. By using real-time data we can make our predictions and recommendations
+										of routes/areas to be improved more precise. More accurate and timely data would further aid us in helping
+										both bikers and the city of Boston.
+										We would also like to distinguish between recreational vs. frequent bikers and help different types of
+										bikers plan their routes based on their preferences.
+									</p>
+									<p>With the recent additions of the Mass. Ave. bike lanes as well as the Columbus Ave. lanes, we want to
+										examine whether the addition of these lanes have actually had an impact on the number of crashes that occur over the next few years. We think it would
+										be useful to be able to differentiate between pedestrian/bike accidents and get a better understanding of the party that may have
+										cause the accident, and use this information to guide proposals on where improvements can be made.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-5 d-flex">
+						<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/map.jpg);">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+				<!--div class="container">
+					<div class="row mb-5 pb-5">
+						<div class="col-md-6 heading-section ftco-animate">
 							<h2 class="mb-4">Future Work</h2>
-								<p>If we had all the time and resources in the world we would love to create an interactive map with real-time data
-									of bike accidents, traffic patterns, and use it to help bikers optimize their routes to and from a place. We would hopefully 
-									use this to help both bikers and the city of Boston. By using real-time data we can make our predictions and recommendations 
-									of routes/areas to be improved more accurate. We would also like to distinguish between recreational vs. frequent bikers and help different types of 
+								<p>If we had all the time and resources in the world we would love to obtain access to real-time data create an interactive map with real-time data
+									of bike accidents, traffic patterns, and use it to help bikers optimize their routes to and from a place. By using real-time data we can make our predictions and recommendations
+									of routes/areas to be improved more accurate. More accurate and timely data would further aid us in helping
+									both bikers and the city of Boston.
+									We would also like to distinguish between recreational vs. frequent bikers and help different types of
 									bikers plan their routes based on their preferences. 
 								</p>
 								<p>With the recent additions of the Mass. Ave. bike lanes as well as the Columbus Ave. lanes, we want to
@@ -756,13 +899,93 @@
 									cause the accident, and use this information to guide proposals on where improvements can be made. 
 									</p>
 						</div>
+						<div class="col-md-6 d-flex">
+							<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/bikelane.JPG);">
+							</div>
+						</div>
 					</div>
 				</div>
-			</section>
+			</section-->
 
-    <!-- <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+	<section class="ftco-section" id="aboutus-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-6 heading-section text-center ftco-animate">
+					<span class="subheading">Ashna, Melissa, Nadine</span>
+					<h2 class="mb-4">About Us</h2>
+					<p>Bikers of Boston</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/ashna.jpg);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<h3 class="mb-2">Ashna Shah</h3>
+								<span class="position mb-4">Frequent Biker</span>
+								<p>
+									Hey there! I am a 4th year, CS major. I currently own a bike and use it to get to and fro campus
+									just about every day. I've had my fair share of biking through frigid Boston days, but I still
+									love having a bike!
+								</p>
+								<p class="text-left">
+									<b>Project Role:</b> ...
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/melissa.jpg);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<h3 class="mb-2">Melissa Michels</h3>
+								<span class="position mb-4">Recreational Biker</span>
+								<p>
+									Hello! I'm a 5th year Computer Science and Business Administration
+									major. I love biking in Boston on a warm summer day! Some of my favorite places
+									to visit include the Charles River along the Esplanade as well as taking longer rides to the
+									Arnold Arboretum.
+								</p>
+								<p class="text-left">
+									<b>Project Role:</b> ...
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="staff">
+						<div class="img-wrap d-flex align-items-stretch">
+							<div class="img align-self-stretch" style="background-image: url(images/nadine.jpg);"></div>
+						</div>
+						<div class="text d-flex align-items-center pt-3 text-center">
+							<div>
+								<h3 class="mb-2">Nadine Shaalan</h3>
+								<span class="position mb-4">Frequent Biker</span>
+								<p>
+									TODO...
+								</p>
+								<p class="text-left">
+									<b>Project Role:</b> ...
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <span class="subheading">Contact</span>
             <h2 class="mb-4">Contact Me</h2>
@@ -789,56 +1012,56 @@
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
               </div>
             </form>
-          
+
           </div>
 
           <div class="col-md-5 d-flex">
-          	<div class="row d-flex contact-info mb-5">
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-map-signs"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Address</h3>
-				            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-phone2"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Contact Number</h3>
-				            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-paper-plane"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Email Address</h3>
-				            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-			            </div>
-			          </div>
-		          </div>
-		          <div class="col-md-12 ftco-animate">
-		          	<div class="box p-2 px-3 bg-light d-flex">
-		          		<div class="icon mr-3">
-		          			<span class="icon-globe"></span>
-		          		</div>
-		          		<div>
-			          		<h3 class="mb-3">Website</h3>
-				            <p><a href="#">yoursite.com</a></p>
-			            </div>
-			          </div>
-		          </div>
-		        </div>
+              <div class="row d-flex contact-info mb-5">
+                  <div class="col-md-12 ftco-animate">
+                      <div class="box p-2 px-3 bg-light d-flex">
+                          <div class="icon mr-3">
+                              <span class="icon-map-signs"></span>
+                          </div>
+                          <div>
+                              <h3 class="mb-3">Address</h3>
+                            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 ftco-animate">
+                      <div class="box p-2 px-3 bg-light d-flex">
+                          <div class="icon mr-3">
+                              <span class="icon-phone2"></span>
+                          </div>
+                          <div>
+                              <h3 class="mb-3">Contact Number</h3>
+                            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 ftco-animate">
+                      <div class="box p-2 px-3 bg-light d-flex">
+                          <div class="icon mr-3">
+                              <span class="icon-paper-plane"></span>
+                          </div>
+                          <div>
+                              <h3 class="mb-3">Email Address</h3>
+                            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-12 ftco-animate">
+                      <div class="box p-2 px-3 bg-light d-flex">
+                          <div class="icon mr-3">
+                              <span class="icon-globe"></span>
+                          </div>
+                          <div>
+                              <h3 class="mb-3">Website</h3>
+                            <p><a href="#">yoursite.com</a></p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
           </div>
         </div>
       </div>
