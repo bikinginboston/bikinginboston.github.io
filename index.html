@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
 
     <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/MarkerCluster.css">
 
     <link rel="stylesheet" href="css/ionicons.min.css">
     
@@ -26,8 +27,7 @@
 		<!-- Make sure you put this AFTER Leaflet's CSS -->
  		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
  						integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-						 crossorigin=""></script>
-
+						 crossorigin=""></script>				 
 	</head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
@@ -90,7 +90,7 @@
 	    				<div class="row justify-content-start pb-3">
 			          <div class="col-md-12 heading-section ftco-animate">
 			          	<span class="subheading">Background</span>
-			            <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">Over <span class="number" data-number="40000">0</span> bike trips are taken in Boston each day</h2>
+			            <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">Over <span class="number" data-number="40000">30000</span> bike trips are taken in Boston each day</h2>
 			            <p>Biking in cities is an increasing trend. In Boston’s long term mobility plan “Go Boston 2030,” their goal is to increase biking fourfold.
 							The city’s transportation department has a Bikes team dedicated to “making bicycling fun, safe, and convenient.” This team is in charge of
 							planning and designing streets, managing the bike share program, and organizing programs to educate the community on bike safety.</p>
@@ -335,11 +335,6 @@
 		</div>
 	</section>
 
-
-
-
-
-
 	<section class="ftco-section ftco-schedule" id="data-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -353,11 +348,10 @@
 					<div class="row">
             <div class="col-md-3 nav-link-wrap">
 	            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-	              <a class="nav-link ftco-animate active" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
-
+								<a class="nav-link ftco-animate active" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="true">Cluster Map<span>All bike crashes in Boston for the past 4 years</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
 	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Filter By Season <span>Click on the Layer Button to explore the map by season</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
 
 	               <!-- <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
 
@@ -371,6 +365,7 @@
 	          </div>
 	          <div class="col-md-9 tab-wrap row">
 	            <div class="tab-content" id="v-pills-tabContent">
+<<<<<<< HEAD
 	              <div class="tab-pane fade show active" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
 									<div class="col-md-8">
 										<div id="yearmapid">
@@ -471,6 +466,139 @@
 
 												</script>
 										</div>	
+=======
+									<div class="tab-pane fade show active" id="v-pills-11" role="tabpanel" aria-labelledby="day-11-tab">
+											<div id="clustermapid">
+												<script type="text/javascript" src="data/crash_data.js"></script> 
+												<script type="text/javascript" src="data/bike_lane.js"></script> 
+												<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster-src.js'></script>
+
+												<script>
+													var markerClusters = L.markerClusterGroup();
+
+														for (var i = 0; i < crash_data.length; i++) {
+															if (crash_data[i].lat != NaN && crash_data[i].long !=NaN) {
+																markerClusters.addLayer(L.circle([crash_data[i].lat, crash_data[i].long], {
+																		color: '#e50cef',
+																		fillColor: '#e50cef',
+																		fillOpacity: 0.5,
+																		radius: 7
+																}));
+															}
+														}  			
+											
+														var mymap = L.map('clustermapid', {
+															center: [42.35, -71.08],
+															zoom: 13,
+														});
+		
+														L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+															maxZoom: 17,
+															minZoom: 9}).addTo(mymap);
+		
+										
+														mymap.addLayer(markerClusters);
+														mymap.invalidateSize()
+													</script>
+											</div>
+										</div>
+	              <div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
+									<div id="yearmapid">
+										<script type="text/javascript" src="data/crash_data.js"></script> 
+										<script type="text/javascript" src="data/bike_lane.js"></script> 
+
+										<script>
+												function check15(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return date.getFullYear() == 2015
+												}
+												function check16(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return date.getFullYear() == 2016
+												}
+												function check17(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return date.getFullYear() == 2017
+												}
+												function check18(crash) {
+													var date =  new Date("" + crash.dispatch_ts)
+													return date.getFullYear() == 2018
+												}
+												var data15 = crash_data.filter(check15)
+												var data16 = crash_data.filter(check16)
+												var data17 = crash_data.filter(check17)
+												var data18 = crash_data.filter(check18)
+												var markers15 =[]
+												var markers16 =[]
+												var markers17 =[]
+												var markers18 =[]
+
+												for (var i = 0; i < data15.length; i++) {
+													markers15.push(L.circle([data15[i].lat, data15[i].long], {
+															color: '#e50cef',
+															fillColor: '#e50cef',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  			
+												
+												for (var i = 0; i < data16.length; i++) {
+													markers16.push(L.circle([data16[i].lat, data16[i].long], {
+															color: '#33a42c',
+															fillColor: '#33a42c',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  
+												for (var i = 0; i < data17.length; i++) {
+													markers17.push(L.circle([data17[i].lat, data17[i].long], {
+															color: '#1376c8',
+															fillColor: '#1376c8',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  
+												for (var i = 0; i < data18.length; i++) {
+													markers18.push(L.circle([data18[i].lat, data18[i].long], {
+															color: '#9282FF',
+															fillColor: '#9282FF',
+															fillOpacity: 0.5,
+															radius: 10
+													}));
+												}  
+												
+												var layer15 = L.layerGroup(markers15);
+												var layer16 = L.layerGroup(markers16);
+												var layer17 = L.layerGroup(markers17);
+												var layer18 = L.layerGroup(markers18);
+
+												var mymap = L.map('yearmapid', {
+													center: [42.35, -71.08],
+													zoom: 13,
+													layers: [layer15, layer16, layer17,layer18]
+												});
+
+												L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+													maxZoom: 17,
+													minZoom: 9}).addTo(mymap);
+
+													var overlayMaps = {
+														"2015": layer15,
+														"2016": layer16,
+														"2017": layer17,
+														"2018": layer18
+													};	
+													var myStyle = {
+   													 "color": "#000000",
+														"weight": 2,
+														"opacity": 0.65
+													};
+													
+												L.geoJSON(bike_lane, {style: myStyle}).addTo(mymap);
+												L.control.layers(null, overlayMaps).addTo(mymap);
+												mymap.invalidateSize()
+											</script>
+>>>>>>> 773d40c707957dbdeaf3aceb7efcfd0d322d30aa
 									</div>
 									<div class="hello col-md-4">
 										<p>Explore this chart to view the change in number of crashes per year. 
@@ -685,6 +813,12 @@
 								<div>
 									<h3 class="mb-2">Melissa Michels</h3>
 									<span class="position mb-4">Recreational Biker</span>
+									<p>
+											Hello! I'm a 5th year Computer Science and Business Administration
+											major. I love biking in Boston on a warm summer day! Some of my favorite places
+											to visit include the Charles River along the Esplanade as well as taking longer rides to the
+											Arnold Arboretum.
+										</p>
 		            </div>
 							</div>
 						</div>
@@ -697,7 +831,11 @@
 							<div class="text d-flex align-items-center pt-3 text-center">
 								<div>
 									<h3 class="mb-2">Nadine Shaalan</h3>
-									<span class="position mb-4">Frequent Biker</span>
+									<span class="position mb-4">Casual Biker</span>
+									<p>
+										Hi! I'm a 4th year Computer Science major graduating this May! 
+										I use BlueBikes to get around the city in the summer, and I love the freedom riding gives you! 
+									</p>
 		            </div>
 							</div>
 						</div>
