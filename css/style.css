@@ -70,6 +70,10 @@ body {
   height: 500px;
 }
 
+.leaflet {
+  height: 30px; 
+}
+
 hr {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;

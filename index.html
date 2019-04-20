@@ -256,14 +256,14 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 ftco-animate">
+				<div class="col-md-6 ftco-animate">
 					<div class="staff">
 						<div class="img-wrap d-flex align-items-stretch">
 							<div class="img align-self-stretch" style="background-image: url(images/visionzero.png);"></div>
 						</div>
 						<div class="text d-flex align-items-center pt-3 text-center">
 							<div>
-								<span class="position mb-4">Data Source #1</span>
+								<a href="https://www.boston.gov/transportation/vision-zero" target="_blank">Data Source #1</a>
 								<p class="text-left">
 									<b>Who?</b> Vision Zero is a subgroup of Boston's Transportation Department. Their mission
 									is to "focus the City’s resources on proven strategies to eliminate fatal and serious traffic
@@ -280,14 +280,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 ftco-animate">
+				<div class="col-md-6 ftco-animate">
 					<div class="staff">
 						<div class="img-wrap d-flex align-items-stretch">
 							<div class="img align-self-stretch" style="background-image: url(images/analyzeboston.png);"></div>
 						</div>
 						<div class="text d-flex align-items-center pt-3 text-center">
 							<div>
-								<span class="position mb-4">Data Source #2</span>
+								<a href="https://data.boston.gov/dataset/existing-bike-network" target="_blank">Data Source #2</a>
 								<p class="text-left">
 									<b>Who?</b> Analyze Boston is the City's open data portal. They provide a wide range of public data
 									with the mission of making information "easy to find, access, and use by a broad audience." Specifically,
@@ -302,14 +302,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 ftco-animate">
+				<div class="col-md-6 ftco-animate">
 					<div class="staff">
 						<div class="img-wrap d-flex align-items-stretch">
 							<div class="img align-self-stretch" style="background-image: url(images/rstudio.png);"></div>
 						</div>
 						<div class="text d-flex align-items-center pt-3 text-center">
 							<div>
-								<span class="position mb-4">Libraries for Data Analysis</span>
+								<a href="https://www.rstudio.com/" class="position mb-4" target="_blank">Libraries for Data Analysis</a>	
 								<p class="text-left">
 									<b>Who?</b> RStudio is a free open-source integreated development enviornment. As stated in their mission,
 									they aim to provide professionals with software that allows for "robust and reproductive data analysis." R's active
@@ -317,7 +317,7 @@
 
 								</p>
 								<p class="text-left">
-									<b>Analysis </b><span class="ion-ios-arrow-round-forward"></span> RStudio was our primary resource for performing in-depth
+									<b>Analysis </b><span class="ion-ios-arrow-round-forward"></span> RStudio was our first resource for performing in-depth
 									data analysis utilizing the crash and bike lane datasets. Our work was supported by the following packages:
 									<li class="text-left">tidyverse</li>
 									<li class="text-left">leaflet</li>
@@ -328,6 +328,35 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-6 ftco-animate">
+						<div class="staff">
+							<div class="img-wrap d-flex align-items-stretch">
+								<div class="img align-self-stretch" style="background-image: url(images/leaflet.jpg);"></div>
+							</div>
+							<div class="text d-flex align-items-center pt-3 text-center">
+								<div>
+									<a href="https://leafletjs.com/index.html" class="position mb-4" target="_blank">Leaflet: JavaScript Library</a>	
+									<p class="text-left">
+										<b>Who?</b> Leaflet is a JS library used for creating interactive maps. 
+										It contains features for plotting points on maps, creating cluster maps, working with 
+										GeoJSON layers, and much more. We utilized leaflet for R initially, then transitioned over
+										to JS code for the webapp.
+									</p>
+									<p class="text-left">
+										<b>Maps </b><span class="ion-ios-arrow-round-forward"></span> Leaflet makes it very easy to 
+										create interactive maps with various views. We used the OpenStreetView as the base map and then
+										overlayed various features such as markers, clusters, heatmaps, etc. We played around with 
+										changing the marker colors to represent different visualizations which you saw above (year, season).
+										We were also able to use it to bring in the shape file of bike paths in Boston which we used
+										to further our analysis of which areas need improvement in the city. 
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 			</div>
 		</div>
 	</section>
@@ -350,8 +379,7 @@
 	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>See where crashes most frequently occured</span></a>
 	            </div>
 	          </div>
-	          <div class="col-md-9 tab-wrap">
-	            
+	          <div class="col-md-9 tab-wrap row">
 	            <div class="tab-content" id="v-pills-tabContent">
 									<div class="tab-pane fade show active" id="v-pills-11" role="tabpanel" aria-labelledby="day-11-tab">
 											<div>
@@ -490,13 +518,34 @@
 												mymap.invalidateSize()
 											</script>
 									</div>
-	              </div>
+									<div class="hello col-md-4">
+										<p>Explore this chart to view the change in number of crashes per year. 
+											We found this to be useful to figuring out if changes in Boston’s infrastructure have had impacts
+											on the number of crashes that occur each year. Something interesting we noticed was that despite 
+											the construction of the bike lanes on Mass. Ave. in 2017, crashes still seem to be occurring. 
+											In our survey we asked people to list some streets on which they have felt unsafe. Streets included 
+											Mass. Ave., Columbus, Huntington, Boylston, and Parker St. Some of these streets have bike lanes, 
+											while others do not; play around with the filters to examine streets with/without bike lanes and see 
+											how the number of crashes may have changed over the years. 
+											</p>
+									</div>
+							</div>
 
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
 									<div>In order to better consolidate the data, we generated a heat map to view the areas where crashes are more concentrated. When examining the map with the bike lanes, something significant we noted was that there are many areas downtown without bike lanes where crashes tend to occur. We know the roads downtown can be confusing and windy, which is why we were not really surprised at the concentration of crashes occurring in that area. 
 									</div>	
 									<div class="img heatmap" style="background-image:url(images/heatmap.jpg);"> -->
 										</div> 
+
+										<div class="hello col-md-4">
+											<p>In order to better consolidate the data we generated a heat map to view the areas where 
+												crashes are more concentrated. When examining the map with the bike lanes, 
+												something significant we noted was that there are many areas downtown without bike 
+												lanes where crashes tend to occur. We know the roads downtown can be confusing and windy, 
+												which is why we were not really surprised at the concentration of crashes occurring in that 
+												area. 
+												</p>
+                </div>
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
@@ -770,7 +819,9 @@
 									love having a bike!
 								</p>
 								<p class="text-left">
-									<b>Project Role:</b> ...
+									<b>Project Role:</b>
+									I worked on creating visualizations in R with leaflet, 
+									which we then transitioned over to JavaScript. 
 								</p>
 							</div>
 						</div>
@@ -792,7 +843,8 @@
 									Arnold Arboretum.
 								</p>
 								<p class="text-left">
-									<b>Project Role:</b> ...
+									<b>Project Role:</b> 
+									I worked on visualizations we did in R with leaflet as well as parts of the data analysis. 
 								</p>
 							</div>
 						</div>
@@ -813,7 +865,8 @@
 									I still love biking and the freedom it gives you!
 								</p>
 								<p class="text-left">
-									<b>Project Role:</b> ...
+									<b>Project Role:</b> 
+									I worked on the transition of our code from R to JavaScript as well as our analysis of the data.
 								</p>
 							</div>
 						</div>
