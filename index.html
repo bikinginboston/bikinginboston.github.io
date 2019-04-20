@@ -347,13 +347,16 @@
 								<a class="nav-link ftco-animate active" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="true">Cluster Map<span>All bike crashes in Boston for the past 4 years</span></a>
 	              <a class="nav-link ftco-animate" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
 	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Filter By Season <span>Click on the Layer Button to explore the map by season</span></a>
-	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
+	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>See where crashes most frequently occured</span></a>
 	            </div>
 	          </div>
 	          <div class="col-md-9 tab-wrap">
 	            
 	            <div class="tab-content" id="v-pills-tabContent">
 									<div class="tab-pane fade show active" id="v-pills-11" role="tabpanel" aria-labelledby="day-11-tab">
+											<div>
+												Play around with this cluster chart to see the breakdown of where crashes occur. As you zoom in, the clusters break up into smaller regions of where accidents occur. We found this useful to get an overall picture of where crashes are occurring and found it helpful to see a smaller breakdown as we zoomed into more specific areas. 
+											</div>
 											<div id="clustermapid">
 												<script type="text/javascript" src="data/crash_data.js"></script> 
 												<script type="text/javascript" src="data/bike_lane.js"></script> 
@@ -389,6 +392,8 @@
 											</div>
 										</div>
 	              <div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="day-8-tab">
+									<div>Explore this chart to view the change in the number of crashes per year. We found this to be useful to figure out if changes in Boston’s infrastructure have had impacts on the number of crashes that occur each year. Something interesting we noticed was that despite the construction of the bike lanes on Mass. Ave. in 2017, crashes still seem to be occurring. In our survey, we asked people to list some streets on which they have felt unsafe. Streets included Mass. Ave., Columbus, Huntington, Boylston, and Parker St. Some of these streets have bike lanes, while others do not; play around with the filters to examine streets with/without bike lanes and see how the number of crashes may have changed over the years. 
+									</div>
 									<div id="yearmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
 										<script type="text/javascript" src="data/bike_lane.js"></script> 
@@ -488,13 +493,18 @@
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
-										<div class="img heatmap" style="background-image:url(images/heatmap.jpg);"> -->
+									<div>In order to better consolidate the data, we generated a heat map to view the areas where crashes are more concentrated. When examining the map with the bike lanes, something significant we noted was that there are many areas downtown without bike lanes where crashes tend to occur. We know the roads downtown can be confusing and windy, which is why we were not really surprised at the concentration of crashes occurring in that area. 
+									</div>	
+									<div class="img heatmap" style="background-image:url(images/heatmap.jpg);"> -->
 										</div> 
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
+									<div>Use this chart to view the change in the number of crashes over each season. Initially, we hypothesized that the majority of crashes would occur in the winter, as roads can be icy and unsafe, however, the map shows a very large number of crashes in the spring/summer. While it is evident that there are more crashes, we would like to know the ratio of the number of bikers to the number of crashes, as there already tend to be more bikers in the warmer months. Again, take a look at the streets with/without bike lanes to view how the number of crashes may have increased/decreased with the change in seasons. 
+									</div>
 									<div id="seasonmapid">
 										<script type="text/javascript" src="data/crash_data.js"></script> 
+										<script type="text/javascript" src="data/bike_lane.js"></script> 
 										<script>
 												function checkWinter(crash) {
 													var date =  new Date("" + crash.dispatch_ts)
@@ -570,7 +580,14 @@
 													layers: [layerWinter, layerSpring, layerSummer,layerFall]
 												});
 
-												myseasonmap.invalidateSize()
+													var myStyle = {
+   													 "color": "#000000",
+														"weight": 2,
+														"opacity": 0.65
+													};
+													
+												L.geoJSON(bike_lane, {style: myStyle}).addTo(myseasonmap);
+
 
 												L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 													maxZoom: 17,
