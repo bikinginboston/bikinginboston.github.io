@@ -43,14 +43,11 @@
 	        <ul class="navbar-nav nav ml-auto">
 						<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 						<li class="nav-item"><a href="#background-section" class="nav-link"><span>Background</span></a></li>
+						<li class="nav-item"><a href="#technology-section" class="nav-link"><span>Resources</span></a></li>
 						<li class="nav-item"><a href="#data-section" class="nav-link"><span>Data Exploration</span></a></li>
 						<li class="nav-item"><a href="#proposals-section" class="nav-link"><span>Proposals</span></a></li>
 						<li class="nav-item"><a href="#futurework-section" class="nav-link"><span>Future Work</span></a></li>
 						<li class="nav-item"><a href="#aboutus-section" class="nav-link"><span>About Us</span></a></li>
-						<li class="nav-item"><a href="#code-section" class="nav-link"><span>Code</span></a></li>
-
-	          <!-- <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li> -->
 	        </ul>
 	      </div>
 	    </div>
@@ -147,7 +144,7 @@
 		</div>
 	</section>
 
-		<section class="ftco-section motivation-section" id="testimonials">
+		<section class="ftco-section motivation-section" id="testimonials-section">
       <div class="container">
         <div class="row justify-content-center pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
@@ -334,8 +331,7 @@
 			</div>
 		</div>
 	</section>
-
-	<section class="ftco-section ftco-schedule" id="data-section">
+		<section class="ftco-section ftco-schedule" id="data-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
 	        <div class="col-md-12 heading-section text-center ftco-animate">
@@ -352,15 +348,6 @@
 	              <a class="nav-link ftco-animate" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="true">Filter By Year<span>Click on the Layer Button to explore the map by year</span></a>
 	              <a class="nav-link ftco-animate" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Filter By Season <span>Click on the Layer Button to explore the map by season</span></a>
 	              <a class="nav-link ftco-animate" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Heat Map <span>Chart 2 Map</span></a>
-
-	               <!-- <a class="nav-link ftco-animate" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Thursday <span>Yoga Classes</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-12-tab" data-toggle="pill" href="#v-pills-12" role="tab" aria-controls="v-pills-12" aria-selected="false">Friday <span>Fitness Program</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-13-tab" data-toggle="pill" href="#v-pills-13" role="tab" aria-controls="v-pills-13" aria-selected="false">Saturday <span>Yoga Classes</span></a>
-
-	              <a class="nav-link ftco-animate" id="v-pills-14-tab" data-toggle="pill" href="#v-pills-14" role="tab" aria-controls="v-pills-14" aria-selected="false">Sunday <span>Crossfit Program</span></a> -->
-
 	            </div>
 	          </div>
 	          <div class="col-md-9 tab-wrap">
@@ -503,46 +490,6 @@
 	              <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-day-9-tab">
 										<div class="img heatmap" style="background-image:url(images/heatmap.jpg);"> -->
 										</div> 
-										<!-- <div id='heatmapid'>
-											<script type="text/javascript" src="data/crash_data.js"></script> 
-											<script src="leaflet-heat.js">
-											<script>
-												var base = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-												var heatmap = new OpenLayers.Layer.HeatCanvas("HeatCanvas", base, {},
-												{'step':0.3, 'degree':HeatCanvas.QUAD, 'opacity':0.8});
-												
-
-												// dataPoints = []
-												// var mydata = {max: 46, data: dataPoints}
-												// console.log("## A: " + dataPoints)
-												for (i = 0; i < crash_data.length; i++) {
-													//dataPoints.push({lat: crash_data[i].lat, lon: crash_data[i].long, value: 37});
-													heatmap.push(crash_data[i].lat, crash_data[i].long, 0.5);
-													//dataPoints.push[crash_data[i].lat, crash_data[i].long, 0.5]
-												}
-												base.addLayer(heatmap);
-												// heatmap.render();
-												// console.log("## A: " + dataPoints)
-
-												// var heatmap = new L.heatLayer(dataPoints, {radius: 25}).addTo(base)
-
-												// var heatmap = new L.TileLayer.heatMap({
-												// 	// size: 350
-												// 	radius: 20,
-												// 	opacity: 0.8
-												// });
-												// heatmap.addData(mydata.data);
-
-												// var baseheatmap = L.map('heatmapid', {
-												// 	layers : [base, heatmap],
-												// 	center : [42.35, -71.08],
-												// 	zoom: 5 
-												// });
-												
-												// baseheatmap.addLayer( heatmap );
-											</script>
-										</div> -->
-
 	              </div>
 
 	              <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-day-10-tab">
@@ -643,73 +590,6 @@
         </div>
 	    </div>
 		</section>
-    <section class="ftco-section" id="aboutus-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-6 heading-section text-center ftco-animate">
-          	<span class="subheading">Ashna, Melissa, Nadine</span>
-            <h2 class="mb-4">About Us</h2>
-            <p>Bikers of Boston</p>
-          </div>
-        </div>
-        <div class="row">
-					<div class="col-md-4 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/ashna.jpg);"></div>
-							</div>
-							<div class="text d-flex align-items-center pt-3 text-center">
-								<div>
-									<h3 class="mb-2">Ashna Shah</h3>
-									<span class="position mb-4">Frequent Biker</span>
-									<p>
-										Hey there! I am a 4th year, CS major. I currently own a bike and use it to get to and from campus
-										just about every day. I've had my fair share of biking through frigid Boston days, but I still 
-										love having a bike!
-									</p>
-		            </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/melissa.jpg);"></div>
-							</div>
-							<div class="text d-flex align-items-center pt-3 text-center">
-								<div>
-									<h3 class="mb-2">Melissa Michels</h3>
-									<span class="position mb-4">Recreational Biker</span>
-									<p>
-											Hello! I'm a 5th year Computer Science and Business Administration
-											major. I love biking in Boston on a warm summer day! Some of my favorite places
-											to visit include the Charles River along the Esplanade as well as taking longer rides to the
-											Arnold Arboretum.
-										</p>
-		            </div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 ftco-animate">
-						<div class="staff">
-							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/nadine.jpg);"></div>
-							</div>
-							<div class="text d-flex align-items-center pt-3 text-center">
-								<div>
-									<h3 class="mb-2">Nadine Shaalan</h3>
-									<span class="position mb-4">Casual Biker</span>
-									<p>
-										Hi! I'm a 4th year Computer Science major graduating this May! 
-										I use BlueBikes to get around the city in the summer, and I love the freedom riding gives you! 
-									</p>
-		            </div>
-							</div>
-						</div>
-					</div>
-				</div>
-    	</div>
-    </section> 
 
     <section class="ftco-section bg-light" id="proposals-section">
       <div class="container">
@@ -848,7 +728,6 @@
 				</div>
 			</div>
 		</section>
-
 	<section class="ftco-section" id="aboutus-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
